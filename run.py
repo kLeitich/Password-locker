@@ -25,17 +25,18 @@ def user_credentials():
 def login():
     choice1=input()
     if choice1=="l":
-        login_name=input("Enter your Username>> ")
-        print(User.user_list[{"username"}])
-        if login_name == User.user_list["username"]:
-            login_pin=input("Proceed to enter you pin>>")
-            if login_pin==User.user_list.pin:
-                print(login_name+" sucessfully logged in")
-                user_credentials()
+        for user in User.user_list:
+            login_name=input("Enter your Username>> ")
+            print(user["username"])
+            if login_name == user["username"]:
+                login_pin=input("Proceed to enter you pin>>")
+                if login_pin==user.pin:
+                    print(login_name+" sucessfully logged in")
+                    user_credentials()
+                else:
+                    print("You enter the wrong pin")
             else:
-                print("You enter the wrong pin")
-        else:
-            print("Username not found")
+                print("Username not found")
     elif choice1=="c":
         input_username=input("What username do you want to use?>>")
         input_pin=input("enter you preffered pin?>>")
