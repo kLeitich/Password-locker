@@ -1,16 +1,15 @@
-
-from secrets import choice
 from user import User
 
 
 def create_user(user_name,password):
     new_user=User(user_name,password)
+    new_user.save_user()
     print(new_user.user_list)
     print("User created")
     return new_user
 
-def save_user(user):
-    user.save_user()
+# def save_user(user):
+#     user.save_user()
 
 def del_user(user):
     user.delete_user()
@@ -22,7 +21,7 @@ def del_user(user):
 # def check_username_exist(user_name):
 #     return User.user_exist(user_name)
 def user_credentials():
-    print("nko hapa")
+    print("Welcome to Credentials.Enter:\nd-to display save credentials\ne-to edit credentials\nr-to delete a credential\ns-save a new credentials. ")
 def login():
     choice1=input()
     if choice1=="l":
@@ -39,8 +38,8 @@ def login():
     elif choice1=="c":
         input_username=input("What username do you want to use?>>")
         input_pin=input("enter you preffered pin?>>")
-        user=create_user(input_username,input_pin)
-        save_user(user)
+        create_user(input_username,input_pin)
+        # save_user(user)
         print("Enter l to log in or c to create another user?>>")
         login()
     else:
@@ -49,15 +48,15 @@ def login():
     
 
 
-def usercredential():
-    print("Credentials.Enter:\nd-to display save credentials\ne-to edit credentials\nr-to delete a credential\ns-save a new credentials. ")
+
+    
 
 
 def main():
     print("Welcome to password locker")
     print("To log in to password Locker enter 'l' or to create a new user enter 'c'")
     login()
-    usercredential()
+    
     
     # login_input=input().lower()
     # if login_input=='l':

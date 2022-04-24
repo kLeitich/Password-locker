@@ -3,11 +3,14 @@ class User:
     user_list=["kevin","1234"]
 
     def __init__(self,user_name,pin):
-        self.username = user_name
-        self.pin = pin
+        self.username = "user_name"
+        self.pin = "pin"
+        
 
     def save_user(self):
+        print(self)
         User.user_list.append(self)
+        
 
     def delete_user(self):
         User.user_list.remove(self)
@@ -27,11 +30,15 @@ class User:
     class Credential:
         Credential_list=[
             {
-                "twiiter":""
+                "twitter":"tweet@1234",
+                "instagram":"ig@5678",
+                "facebook":"fb@9101",
+                "linkedin":"ln@1121",
+                "tiktok":"tik@3141"
             }
         ]
 
-        def __inti__(self,account,password):
+        def __init__(self,account,password):
             self.account = account
             self.password=password
 
@@ -48,4 +55,12 @@ class User:
                 if cred.account==account:
                     return cred
 
-    
+
+def main():
+    username="test"
+    pin="2345"
+    new_user=User(username,pin)
+    us
+
+if __name__=='__main__':
+    main()
