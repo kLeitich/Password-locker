@@ -5,6 +5,7 @@ from user import User
 
 def create_user(user_name,password):
     new_user=User(user_name,password)
+    print(new_user.user_list)
     print("User created")
     return new_user
 
@@ -23,8 +24,6 @@ def del_user(user):
 def user_credentials():
     print("nko hapa")
 def login():
-    print("Welcome to password locker")
-    print("To log in to password Locker enter 'l' or to create a new user enter 'c'")
     choice1=input()
     if choice1=="l":
         login_name=input("Enter your Username>> ")
@@ -37,7 +36,16 @@ def login():
                 print("You enter the wrong pin")
         else:
             print("Username not found")
-
+    elif choice1=="c":
+        input_username=input("What username do you want to use?>>")
+        input_pin=input("enter you preffered pin?>>")
+        user=create_user(input_username,input_pin)
+        save_user(user)
+        print("Enter l to log in or c to create another user?>>")
+        login()
+    else:
+        print("Invalid input,please try again")
+        login()
     
 
 
@@ -49,8 +57,8 @@ def login():
     #     print("Welcome back {approved_user.login_name}")
 
 def main():
-    # print("Welcome to password locker")
-    # print("To log in to password Locker enter 'l' or to create a new user enter 'c'")
+    print("Welcome to password locker")
+    print("To log in to password Locker enter 'l' or to create a new user enter 'c'")
     login()
     
     # login_input=input().lower()
