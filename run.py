@@ -4,7 +4,7 @@ from user import User
 def create_user(user_name,password):
     new_user=User(user_name,password)
     new_user.save_user()
-    print(new_user.user_list)
+    print(new_user.user_list.User)
     print("User created")
     return new_user
 
@@ -26,9 +26,10 @@ def login():
     choice1=input()
     if choice1=="l":
         login_name=input("Enter your Username>> ")
-        if login_name == User.user_list[0]:
+        print(User.user_list[{"username"}])
+        if login_name == User.user_list["username"]:
             login_pin=input("Proceed to enter you pin>>")
-            if login_pin==User.user_list[1]:
+            if login_pin==User.user_list.pin:
                 print(login_name+" sucessfully logged in")
                 user_credentials()
             else:
