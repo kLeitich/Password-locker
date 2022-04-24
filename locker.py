@@ -16,7 +16,7 @@ class User:
         User.user_list.remove(self)
     
     @classmethod
-    def find_by_user(cls,username,password):
+    def log_in(cls,username,password):
         for user in cls.user_list:
             if user.username == username:
                 if user.password == password:
