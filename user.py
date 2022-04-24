@@ -1,6 +1,6 @@
 class User:
 
-    user_list=[]
+    user_list=["kevin","1234"]
 
     def __init__(self,user_name,pin):
         self.username = user_name
@@ -13,12 +13,23 @@ class User:
         User.user_list.remove(self)
     
     @classmethod
-    def find_by_username(cls,username):
-        for user in cls.user_list:
-            if user.username==username:
-                return user
+    def loginuser(username,pin):
+        userloggedin="kevin"
+        loggedin= False
+        for user in User.user_list:
+            if username==user.user_name and pin == user.pin:
+                userloggedin =user
+                loggedin=True
+        return[userloggedin,loggedin]
+
+
+
     class Credential:
-        Credential_list=[]
+        Credential_list=[
+            {
+                "twiiter":""
+            }
+        ]
 
         def __inti__(self,account,password):
             self.account = account
