@@ -1,6 +1,3 @@
-from httplib2 import Credentials
-
-
 class User:
 
     user_list=[]
@@ -21,11 +18,23 @@ class User:
             if user.username==username:
                 return user
     class Credential:
-        Credentials=[]
+        Credential_list=[]
 
         def __inti__(self,account,password):
             self.account = account
             self.password=password
 
-        def
+        def save_credential(self):
+            self.Credential_list.append(self)
+
+
+        def delete_credential(self):
+            self.Credential_list.remove(self)
+        
+        @classmethod
+        def find_by_account(cls,account):
+            for cred in cls.Credential_list:
+                if cred.account==account:
+                    return cred
+
     
