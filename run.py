@@ -49,17 +49,15 @@ def login():
     
 
 
-    # login_pin=input("Enter your pin>> ")
-    # approved_user=User.loginuser(login_name,login_pin)
-    # print(approved_user)
-    # loggedin=User.loginuser(login_name,login_pin)
-    # if loggedin:
-    #     print("Welcome back {approved_user.login_name}")
+def usercredential():
+    print("Credentials.Enter:\nd-to display save credentials\ne-to edit credentials\nr-to delete a credential\ns-save a new credentials. ")
+
 
 def main():
     print("Welcome to password locker")
     print("To log in to password Locker enter 'l' or to create a new user enter 'c'")
     login()
+    usercredential()
     
     # login_input=input().lower()
     # if login_input=='l':
