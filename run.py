@@ -4,24 +4,34 @@ from user import User
 def create_user(user_name,password):
     new_user=User(user_name,password)
     new_user.save_user()
-    print(new_user.user_list.User)
     print("User created")
     return new_user
 
-# def save_user(user):
-#     user.save_user()
 
 def del_user(user):
     user.delete_user()
 
-# def find_user(user_name):
 
-#     return User.find_by_username(user_name)
-
-# def check_username_exist(user_name):
-#     return User.user_exist(user_name)
 def user_credentials():
-    print("Welcome to Credentials.Enter:\nd-to display save credentials\ne-to edit credentials\nr-to delete a credential\ns-save a new credentials. ")
+    print("Welcome to Credentials.Enter:\nd-to display save credentials\ne-to edit credentials\nr-to delete a credential\ns-save a new credentials.")
+    choice2=input()
+    for user in User.Credential.Credential_list:
+       
+        if choice2=="d":
+            print(str(user["user"])+" these are your save credentials\n"+str(user["credentials"]))
+
+        elif choice2=="e":
+            print("coming soon")
+        elif choice2=="r":
+            if user["credentials"]==0:
+                print("There is no account to delete")
+            else:
+                delete_account()
+        elif choice2=="s":
+            new_credentials()        
+        else:
+            print("Invalid entry,please try again")
+
 def login():
     choice1=input()
     if choice1=="l":
@@ -30,13 +40,13 @@ def login():
             print(user["username"])
             if login_name == user["username"]:
                 login_pin=input("Proceed to enter you pin>>")
-                if login_pin==user.pin:
+                if login_pin==user["pin"]:
                     print(login_name+" sucessfully logged in")
                     user_credentials()
                 else:
                     print("You enter the wrong pin")
             else:
-                print("Username not found")
+                print("Username not found,try again")
     elif choice1=="c":
         input_username=input("What username do you want to use?>>")
         input_pin=input("enter you preffered pin?>>")

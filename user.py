@@ -12,32 +12,27 @@ class User:
         self.pin = pin
 
     def save_user(self):
-        User.user_list.append(self)
+        # print(self)
+        # print(self.username)
+        # print(self.pin)
+        
+        User.user_list.append({
+            "username": self.username,
+            "pin": self.pin
+        })
 
     def delete_user(self):
         User.user_list.remove(self)
     
-    # @classmethod
-    # def loginuser(username,pin):
-    #     userloggedin="User.username"
-    #     loggedin= False
-    #     for user in User.user_list:
-    #         if username==user.user_name and pin == user.pin:
-    #             userloggedin =user
-    #             loggedin=True
-    #     return[userloggedin,loggedin]
-
-
-
+    
     class Credential:
         Credential_list=[
             {
                 "user":"kevin",
                 "credentials":{
+                    
                 "twitter":"tweet@1234",
-                "instagram":"ig@5678",
                 "facebook":"fb@9101",
-                "linkedin":"ln@1121",
                 "tiktok":"tik@3141"
             
                 }
