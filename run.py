@@ -49,24 +49,8 @@ def user_credentials():
                 delete_account()
                 
     elif choice2=="s":
-          
-        account=input("Enter the account name?\n")
-        choice3=input("To create a password enter:\nc- to create a custom password\ng-generate a custom password\n")
-        if choice3=="c":
-                
-                password=str(input("Enter a custom a password?"))
-                
-                create_credentials(account,password)
-                 
-        elif choice3=="g":
-                
-                password=generate_password()
-                
-                create_credentials(account,password)
-               
-        else:
-                print("Invalid entry, please enter 'c' or 'g'")    
-            
+        generate_password()  
+        
                     
     else:
         print("Invalid entry,please try again")
@@ -77,11 +61,29 @@ def generate_password():
     """
     this function create a random password with all characters and the length is the password is 8
     """
-    randompass = [random.choice(string.printable)for _ in range(8) ]
-    password =""
-    for char  in randompass:
-        password+= char
-    # print(password)
+    # print("hi")
+    choice3=input("To create a credentials account enter:\nc- to create a custom password\ng-generate a custom password\n")
+    if choice3=="c":
+        account=input("Enter the account name?\n")
+        password=str(input("Enter a custom a password?"))
+        create_credentials(account,password)
+                 
+    elif choice3=="g":
+        account=input("Enter the account name?\n")
+        randompass = [random.choice(string.printable)for _ in range(8) ]
+        password =""
+        for char  in randompass:
+            password+= char
+    
+        create_credentials(account,password)
+            
+               
+    # else:
+    #             print("Invalid entry, please enter 'c' or 'g'")    
+            
+    
+    # create_credentials(account,password)
+    # # print(password)
 def login():
     """
     this function is used to autheticate the user using either already existing username and pin or one that he/she
