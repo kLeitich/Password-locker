@@ -25,7 +25,10 @@ def delete_account():
     """
     this function delete an account from credentials list
     """
-    print("nko hapa")
+    choice4=str(input("Enter the account you want to delete?\n"))
+    User.Credential.delete_credential(choice4)
+    print("Succefully deleted")
+
 
 
 def user_credentials():
@@ -111,6 +114,7 @@ def login():
         login()
 
 def create_new_user():
+    
     input_username=input("What username do you want to use?>>")
     input_pin=input("enter you preffered pin?>>")
     create_user(input_username,input_pin)

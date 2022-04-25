@@ -52,6 +52,6 @@ class User:
                 
             )
 
-        def delete_user(self):
-            User.Credential.Credential_list.remove(self)    
+        def delete_credential(self):
+            User.Credential.Credential_list.remove(self)   
     
