@@ -37,22 +37,30 @@ def user_credentials():
     this function is used to either display user credentials already in file,edit a account credentials,remove an account credentials,
     or save a new credit to a specific user.
     """
-    print("Welcome to Credentials.Enter:\nd-to display save credentials\ne-to edit credentials\nr-to delete a credential\ns-save a new credentials.")
+    print("Welcome to Credentials.Enter:\nd-to display save credentials\ne-to edit credentials\nr-to delete a credential\ns-save a new credentials\nexit-to exit the program.")
     choice2=input()
     
     if choice2=="d":
             print(" these are your save credentials\n"+ str(User.Credential.Credential_list))
+            user_credentials()
 
     elif choice2=="e":
             print("coming soon")
+            user_credentials()
     elif choice2=="r":
             if len(User.Credential.Credential_list)==0:
                 print("There is no account to delete")
+                user_credentials()
             else:
                 delete_account()
+                user_credentials()
                 
     elif choice2=="s":
         generate_password()  
+        user_credentials()
+
+    elif choice2=="exit":
+        exit()
         
                     
     else:
@@ -64,7 +72,7 @@ def generate_password():
     """
     this function create a random password with all characters and the length is the password is 8
     """
-    # print("hi")
+    
     choice3=input("To create a credentials account enter:\nc- to create a custom password\ng-generate a custom password\n")
     if choice3=="c":
         account=input("Enter the account name?\n")
@@ -81,8 +89,8 @@ def generate_password():
         create_credentials(account,password)
             
                
-    # else:
-    #             print("Invalid entry, please enter 'c' or 'g'")    
+    else:
+                print("Invalid entry, please enter 'c' or 'g'")    
             
     
     # create_credentials(account,password)
@@ -110,7 +118,7 @@ def login():
     elif choice1=="c":
         create_new_user()
     else:
-        print("Invalid input,please try again\nEnter the right Username?")
+        print("Invalid input,please try again\nEnter the right input either c or l?")
         login()
 
 def create_new_user():
@@ -135,7 +143,7 @@ def main():
     print("Welcome to password locker")
     print("To log in to password Locker enter 'l' or to create a new user enter 'c'")
     login()
-    exit()
+    # exit()
     
     
     # login_input=input().lower()
