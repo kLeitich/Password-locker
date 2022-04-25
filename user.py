@@ -23,23 +23,13 @@ class User:
             "pin": self.pin
         })
 
-    # def delete_user(self):
-    #     User.user_list.remove(self)
+    
     
     
     class Credential:
         Credential_list=[
-            {
-                "user":"kevin",
-                "credentials":{
-                    
-                "twitter":"tweet@1234",
-                "facebook":"fb@9101",
-                "tiktok":"tik@3141"
-            
-                }
-            }
-        ]
+            {"twitter":"tweet@1234"},{"facebook":"fb@9101"},{"tiktok":"tik@3141"}     
+             ]
 
         def __init__(self,account,password):
             """
@@ -61,5 +51,7 @@ class User:
                     }
                 
             )
-            
+
+        def delete_user(self):
+            User.Credential.Credential_list.remove(self)    
     
