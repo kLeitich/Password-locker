@@ -40,8 +40,8 @@ class User:
             }
         ]
 
-        def __init__(self,username,account,password):
-            self.username=username
+        def __init__(self,account,password):
+            # self.username=username
             # self.credential=credential
             self.account = account
             self.password=password
@@ -51,26 +51,11 @@ class User:
             
 
         def save_credential(self):
-            self.Credential_list.append( {
-                
-                    "user":self.username,
-                    "credentials":{
+            self.Credential_list.append( 
+                    {
                         self.account,self.password
                     }
-                }
+                
             )
-            # }
             
-            # ]
-
-
-        # def delete_credential(self):
-        #     self.Credential_list.remove(self)
-        
-        # @classmethod
-        # def find_by_account(cls,account):
-        #     for cred in cls.Credential_list:
-        #         if cred.account==account:
-        #             return cred
-
     

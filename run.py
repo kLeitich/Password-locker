@@ -4,21 +4,36 @@ import string
 
 
 def create_user(user_name,password):
+    """
+    this function create a new user with his or her password and save it in user_list
+    """
     new_user=User(user_name,password)
     new_user.save_user()
     print("User created")
     return new_user
 
-def create_credentials(username,account,password):
-    new_credential=User.Credential(username,account,password)
+def create_credentials(account,password):
+
+    """
+    this function create a account credentials and save it in credentials under in credentials_list
+    """
+    new_credential=User.Credential(account,password)
     new_credential.save_credential()
     print(new_credential.Credential_list)
 
 def delete_account():
+    """
+    this function delete an account from credentials list
+    """
     print("nko hapa")
 
 
 def user_credentials():
+
+    """
+    this function is used to either display user credentials already in file,edit a account credentials,remove an account credentials,
+    or save a new credit to a specific user.
+    """
     print("Welcome to Credentials.Enter:\nd-to display save credentials\ne-to edit credentials\nr-to delete a credential\ns-save a new credentials.")
     choice2=input()
     for user in User.Credential.Credential_list:
@@ -35,29 +50,46 @@ def user_credentials():
                 delete_account()
                 # user_credentials()
         elif choice2=="s":
-            username=user["user"]
+            # create_credentials()
+            # username=user["user"]
             account=input("Enter the account name?\n")
             choice3=input("To create a password enter:\nc- to create a custom password\ng-generate a custom password\n")
             if choice3=="c":
-                password=input("Enter a custom a password?")
+                # account=input("Enter the account name?\n")
+                password=str(input("Enter a custom a password?"))
+                print(account,password)
+                # create_credentials(account,password)
+                # 
             elif choice3=="g":
+                # account=input("Enter the account name?\n")
                 password=generate_password()
+                print(account,password)
+                # create_credentials(account,password)
+                # create_credentials(username,account,password)
             else:
                 print("Invalid entry, please enter 'c' or 'g'")    
-            create_credentials(username,account,password)
-            # user_credentials()        
+            
+                    
         else:
             print("Invalid entry,please try again")
 
 
 
 def generate_password():
+    """
+    this function create a random password with all characters and the length is the password is 8
+    """
     randompass = [random.choice(string.printable)for _ in range(8) ]
     password =""
     for char  in randompass:
         password+= char
-    print(password)
+    # print(password)
 def login():
+    """
+    this function is used to autheticate the user using either already existing username and pin or one that he/she
+    will create,after that as a existing user you will be able to access credentials accounts, if new user credentials will be empty
+    """
+    
     choice1=input()
     if choice1=="l":
         for user in User.user_list:
@@ -76,7 +108,6 @@ def login():
         input_username=input("What username do you want to use?>>")
         input_pin=input("enter you preffered pin?>>")
         create_user(input_username,input_pin)
-        # save_user(user)
         print("Enter l to log in or c to create another user?>>")
         login()
     else:
