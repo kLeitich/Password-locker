@@ -36,42 +36,40 @@ def user_credentials():
     """
     print("Welcome to Credentials.Enter:\nd-to display save credentials\ne-to edit credentials\nr-to delete a credential\ns-save a new credentials.")
     choice2=input()
-    for user in User.Credential.Credential_list:
-       
-        if choice2=="d":
-            print(str(user["user"])+" these are your save credentials\n"+str(user["credentials"]))
+    
+    if choice2=="d":
+            print(" these are your save credentials\n"+ str(User.Credential.Credential_list))
 
-        elif choice2=="e":
+    elif choice2=="e":
             print("coming soon")
-        elif choice2=="r":
-            if user["credentials"]==0:
+    elif choice2=="r":
+            if len(User.Credential.Credential_list)==0:
                 print("There is no account to delete")
             else:
                 delete_account()
-                # user_credentials()
-        elif choice2=="s":
-            # create_credentials()
-            # username=user["user"]
-            account=input("Enter the account name?\n")
-            choice3=input("To create a password enter:\nc- to create a custom password\ng-generate a custom password\n")
-            if choice3=="c":
-                # account=input("Enter the account name?\n")
+                
+    elif choice2=="s":
+          
+        account=input("Enter the account name?\n")
+        choice3=input("To create a password enter:\nc- to create a custom password\ng-generate a custom password\n")
+        if choice3=="c":
+                
                 password=str(input("Enter a custom a password?"))
-                print(account,password)
-                # create_credentials(account,password)
-                # 
-            elif choice3=="g":
-                # account=input("Enter the account name?\n")
+                
+                create_credentials(account,password)
+                 
+        elif choice3=="g":
+                
                 password=generate_password()
-                print(account,password)
-                # create_credentials(account,password)
-                # create_credentials(username,account,password)
-            else:
+                
+                create_credentials(account,password)
+               
+        else:
                 print("Invalid entry, please enter 'c' or 'g'")    
             
                     
-        else:
-            print("Invalid entry,please try again")
+    else:
+        print("Invalid entry,please try again")
 
 
 
