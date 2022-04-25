@@ -105,25 +105,33 @@ def login():
             else:
                 print("Username not found,try again")
     elif choice1=="c":
-        input_username=input("What username do you want to use?>>")
-        input_pin=input("enter you preffered pin?>>")
-        create_user(input_username,input_pin)
-        print("Enter l to log in or c to create another user?>>")
-        login()
+        create_new_user()
     else:
-        print("Invalid input,please try again")
+        print("Invalid input,please try again\nEnter the right Username?")
         login()
+
+def create_new_user():
+    input_username=input("What username do you want to use?>>")
+    input_pin=input("enter you preffered pin?>>")
+    create_user(input_username,input_pin)
+    print("Enter l to log in or c to create another user?>>")
+    login()
+    
+
     
 
 
 
-    
+def exit():
+    print("Thank you for using Password Locker")
+
 
 
 def main():
     print("Welcome to password locker")
     print("To log in to password Locker enter 'l' or to create a new user enter 'c'")
     login()
+    exit()
     
     
     # login_input=input().lower()
