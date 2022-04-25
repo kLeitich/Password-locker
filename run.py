@@ -1,4 +1,5 @@
 from user import User
+import random
 
 
 def create_user(user_name,password):
@@ -7,9 +8,14 @@ def create_user(user_name,password):
     print("User created")
     return new_user
 
+def create_credentials(username,account,password):
+    print("i am waitng")
+    new_credential=User.Credential(username,account,password)
+    new_credential.save_credential()
+    print(new_credential)
 
-def del_user(user):
-    user.delete_user()
+def delete_account():
+    print("nko hapa")
 
 
 def user_credentials():
@@ -27,17 +33,28 @@ def user_credentials():
                 print("There is no account to delete")
             else:
                 delete_account()
+                # user_credentials()
         elif choice2=="s":
-            new_credentials()        
+            username=user["user"]
+            account=input("Enter the acoount name?\n")
+            choice3=input("To create a password enter:\nc- to create a custom password\ng-generate a custom password\n")
+            if choice3=="c":
+                password=input("Enter a custom a password?")
+            elif choice3=="g":
+                password=generate_password()
+                
+            create_credentials(username,account,password)
+            # user_credentials()        
         else:
             print("Invalid entry,please try again")
-
+def generate_password():
+    print("working on it")
 def login():
     choice1=input()
     if choice1=="l":
         for user in User.user_list:
             login_name=input("Enter your Username>> ")
-            print(user["username"])
+            # print(user["username"])
             if login_name == user["username"]:
                 login_pin=input("Proceed to enter you pin>>")
                 if login_pin==user["pin"]:
