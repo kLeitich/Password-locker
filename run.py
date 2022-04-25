@@ -1,5 +1,6 @@
 from user import User
 import random
+import string
 
 
 def create_user(user_name,password):
@@ -9,10 +10,9 @@ def create_user(user_name,password):
     return new_user
 
 def create_credentials(username,account,password):
-    print("i am waitng")
     new_credential=User.Credential(username,account,password)
     new_credential.save_credential()
-    print(new_credential)
+    print(new_credential.Credential_list)
 
 def delete_account():
     print("nko hapa")
@@ -36,19 +36,27 @@ def user_credentials():
                 # user_credentials()
         elif choice2=="s":
             username=user["user"]
-            account=input("Enter the acoount name?\n")
+            account=input("Enter the account name?\n")
             choice3=input("To create a password enter:\nc- to create a custom password\ng-generate a custom password\n")
             if choice3=="c":
                 password=input("Enter a custom a password?")
             elif choice3=="g":
                 password=generate_password()
-                
+            else:
+                print("Invalid entry, please enter 'c' or 'g'")    
             create_credentials(username,account,password)
             # user_credentials()        
         else:
             print("Invalid entry,please try again")
+
+
+
 def generate_password():
-    print("working on it")
+    randompass = [random.choice(string.printable)for _ in range(8) ]
+    password =""
+    for char  in randompass:
+        password+= char
+    print(password)
 def login():
     choice1=input()
     if choice1=="l":
