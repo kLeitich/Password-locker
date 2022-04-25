@@ -1,7 +1,3 @@
-from httplib2 import Credentials
-from keyring import get_credential
-
-
 class User:
 
     user_list=[
@@ -12,11 +8,16 @@ class User:
         ]
 
     def __init__(self,user_name,pin):
+        """
+            this function create a new
+        """
         self.username = user_name
         self.pin = pin
 
     def save_user(self):
-        
+        """
+            this function save a new user that is being created in user list
+        """
         User.user_list.append({
             "username": self.username,
             "pin": self.pin
@@ -41,16 +42,19 @@ class User:
         ]
 
         def __init__(self,account,password):
-            # self.username=username
-            # self.credential=credential
+            """
+            this function create a new account and password to be saved in credentials
+
+            """
             self.account = account
             self.password=password
-            # credential ={
-            #     account:password
-            # }    
+              
             
 
         def save_credential(self):
+            """
+            this function save the new created account credentials
+            """
             self.Credential_list.append( 
                     {
                         self.account,self.password
