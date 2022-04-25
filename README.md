@@ -60,6 +60,12 @@ git@github.com:kLeitich/Password-locker.git
 - Make sure you have a stable internet for forking this repository.
 - According to the license, you can fork this project. You need to click on the forking icon and it will be added as one of your repositories
 
+### 3. Log in
+- I have a default user of:
+        username: kevin
+        password: 1234
+- but feel free to create yours and use it to log in
+
 Feel free to fork the project and have fun with it. Happy coding!
 
 
