@@ -1,16 +1,20 @@
+from collections import UserList
 from user import User
 import random
 import string
 
 
-def create_user(user_name,password):
+def create_user(input_username,input_pin):
     """
     this function create a new user with his or her password and save it in user_list
     """
-    new_user=User(user_name,password)
+    
+    new_user=User(input_username,input_pin)
     new_user.save_user()
+    print(User.user_list)
     print("User created")
-    return new_user
+    login()
+    # return new_user
 
 def create_credentials(account,password):
 
@@ -93,19 +97,19 @@ def generate_password():
                 print("Invalid entry, please enter 'c' or 'g'")    
             
     
-    # create_credentials(account,password)
-    # # print(password)
+    
 def login():
     """
     this function is used to autheticate the user using either already existing username and pin or one that he/she
     will create,after that as a existing user you will be able to access credentials accounts, if new user credentials will be empty
     """
-    
+    print("To log in to password Locker enter 'l' or to create a new user enter 'c'")
     choice1=input()
     if choice1=="l":
+
+        login_name=input("Enter your Username>> ")
         for user in User.user_list:
-            login_name=input("Enter your Username>> ")
-            # print(user["username"])
+            
             if login_name == user["username"]:
                 login_pin=input("Proceed to enter you pin>>")
                 if login_pin==user["pin"]:
@@ -113,21 +117,19 @@ def login():
                     user_credentials()
                 else:
                     print("You enter the wrong pin")
-            else:
-                print("Username not found,try again")
+        print("Username not found,try again")
+                
+                
     elif choice1=="c":
-        create_new_user()
+        input_username=input("What username do you want to use?>>")
+        input_pin=input("enter you preffered pin?>>")
+        create_user(input_username,input_pin)
+      
     else:
         print("Invalid input,please try again\nEnter the right input either c or l?")
         login()
 
-def create_new_user():
-    
-    input_username=input("What username do you want to use?>>")
-    input_pin=input("enter you preffered pin?>>")
-    create_user(input_username,input_pin)
-    print("Enter l to log in or c to create another user?>>")
-    login()
+
     
 
     
@@ -141,7 +143,6 @@ def exit():
 
 def main():
     print("Welcome to password locker")
-    print("To log in to password Locker enter 'l' or to create a new user enter 'c'")
     login()
     # exit()
     
